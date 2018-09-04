@@ -1,0 +1,1 @@
+Trello link: https://trello.com/b/1K2EesED/emmy-project-1-hangman
