@@ -19,41 +19,46 @@ updateWordDisplay(targetWord)
 $('#status').html('Status: OK')
 $('#targetword').html(wordDisplay)
 let incorrectCount = 0
+let gameEnd = false
 
 
 // Letter Button Click Handling
 $('.letterbuttons button').on('click', checkForMatch)
 
 function checkForMatch() {
+    // check for diabled (off) button before continuing AND no win/loss
+    if ($(this).attr('class') !== 'btn-off' && !gameEnd) {
+        // if correct letter
+        if (targetWord.indexOf(this.id) !== -1) {
+            for (i = 0; i < wordDisplay.length; i++) {
 
-    // if correct letter
-    if (targetWord.indexOf(this.id) !== -1) {
-        for (i = 0; i < wordDisplay.length; i++) {
-
-            // replace correct letter
-            if (targetWord[i] === this.id) {
-                wordDisplay[i] = this.id
-                $('#targetword').html(wordDisplay)
+                // replace correct letter
+                if (targetWord[i] === this.id) {
+                    wordDisplay[i] = this.id
+                    $('#targetword').html(wordDisplay)
+                }
+            }
+            // check for win
+            if (incorrectCount < 6 && wordDisplay.indexOf(' _ ') === -1) {
+                $('#status').html('Status: You win!')
+                gameEnd = true
             }
         }
-        // check for win
-        if (incorrectCount < 6 && wordDisplay.indexOf(' _ ') === -1) {
-            $('#status').html('Status: You win!')
-        }
-    }
 
-    // otherwise (incorrect letter)
-    else {
-        console.log(this.id)
-        incorrectCount++
-        // update play image
-        $('#playimg').attr('src', `css/images/bear-${incorrectCount}.jpg`)
-        // check for lose
-        if (incorrectCount >= 6 && wordDisplay.indexOf(' _ ') >= 0) {
-            $('#status').html('Status: Try again :(')
+        // otherwise (incorrect letter)
+        else {
+            console.log(this.id)
+            incorrectCount++
+            // update play image
+            $('#playimg').attr('src', `css/images/bear-${incorrectCount}.jpg`)
+            // check for lose
+            if (incorrectCount >= 6 && wordDisplay.indexOf(' _ ') >= 0) {
+                $('#status').html('Status: Try again :(')
+                gameEnd = true
+            }
         }
-    }
 
-    // turning button "off"
-    $(this).addClass('btn-off')
-} 
+        // turning button "off"
+        $(this).addClass('btn-off')
+    }
+}
