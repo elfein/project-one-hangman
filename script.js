@@ -46,6 +46,8 @@ function checkForMatch() {
     else {
         console.log(this.id)
         incorrectCount++
+        // update play image
+        $('#playimg').attr('src', `css/images/bear-${incorrectCount}.jpg`)
         // check for lose
         if (incorrectCount >= 6 && wordDisplay.indexOf(' _ ') >= 0) {
             $('#status').html('Status: Try again :(')
