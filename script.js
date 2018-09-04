@@ -24,12 +24,18 @@ $('#targetword').html(wordDisplay)
 $('.letterbuttons button').on('click', checkForMatch)
 
 function checkForMatch() {
+    // if correct letter
     if (targetWord.indexOf(this.id) !== -1) {
         for (i = 0; i < wordDisplay.length; i++) {
+            // replace correct letter
             if (targetWord[i] === this.id) {
                 wordDisplay[i] = this.id
                 $('#targetword').html(wordDisplay)
             }
         }
+    } 
+    // otherwise (incorrect letter)
+    else {
+        $()
     }
 }
