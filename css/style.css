@@ -2,6 +2,7 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin: 0 auto;
 }
 
 div {
@@ -12,4 +13,27 @@ div {
 
 span {
     padding: 5px;
+}
+
+img {
+    max-height: 300px;
+    max-width: 100%;
+}
+
+.btn-off {
+    text-decoration: line-through;
+}
+
+.letterbuttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: 0 auto;
+}
+
+button {
+    width: 40px;
+    padding: 10px 0;
 }
