@@ -69,4 +69,15 @@ function allBtnsOff() {
     if (gameEnd === true) {
         $('.letterbuttons').children('button').css('background', 'pink')
         }
+    $('#restart').html('Restart')
+}
+
+$('#restart').on('click', resetGame)
+
+function resetGame() {
+    gameEnd = false
+    $('.letterbuttons').children('button').removeClass('btn-off')
+    $('.letterbuttons').children('button').css('background', 'lightgrey')
+    incorrectCount = 0
+    $('#playimg').attr('src', `css/images/bear-${incorrectCount}.jpg`)
 }
