@@ -1,9 +1,14 @@
 // Target Word Handling
-let targetWord = 'fireball'
+let targetWord = 'healing word'
+let spacer = '<span>    </span>'
 let wordDisplay = []
 const updateWordDisplay = (word) => {
     for (i = 0; i < word.length; i++) {
-        wordDisplay.push(' _ ')
+        if (targetWord[i] !== ' ') {
+            wordDisplay.push(' _ ')
+        } else {
+            wordDisplay.push(spacer)
+        }
     }
 }
 
@@ -19,12 +24,12 @@ $('#targetword').html(wordDisplay)
 $('.letterbuttons button').on('click', checkForMatch)
 
 function checkForMatch() {
- if (targetWord.indexOf(this.id) !== -1) {
-     for (i = 0; i < wordDisplay.length; i++) {
-        if (targetWord[i] === this.id) {
-            wordDisplay[i] = this.id
-            $('#targetword').html(wordDisplay)
+    if (targetWord.indexOf(this.id) !== -1) {
+        for (i = 0; i < wordDisplay.length; i++) {
+            if (targetWord[i] === this.id) {
+                wordDisplay[i] = this.id
+                $('#targetword').html(wordDisplay)
+            }
         }
-     }
- }
+    }
 }
