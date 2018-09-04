@@ -25,7 +25,7 @@ let gameEnd = false
 // Letter Button Click Handling
 $('.letterbuttons button').on('click', checkForMatch)
 
-function checkForMatch() {
+function checkForMatch($event) {
     // check for diabled (off) button before continuing AND no win/loss
     if ($(this).attr('class') !== 'btn-off' && !gameEnd) {
         // if correct letter
@@ -60,5 +60,13 @@ function checkForMatch() {
 
         // turning button "off"
         $(this).addClass('btn-off')
+        allBtnsOff()
     }
+}
+
+// End of Game Events
+function allBtnsOff() {
+    if (gameEnd === true) {
+        $('.letterbuttons').children('button').css('background', 'pink')
+        }
 }
