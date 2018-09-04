@@ -1,18 +1,14 @@
-main {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin: 0 auto;
+html {
+    background: lightgoldenrodyellow
 }
 
-div {
-    width: 50%;
-    padding: 10px;
+body {
     text-align: center;
-}
-
-span {
-    padding: 5px;
+    width: 80%;
+    height: 100vh;
+    margin: 0 auto;
+    background: white;
+    font-family: sans-serif;
 }
 
 img {
@@ -20,6 +16,32 @@ img {
     max-width: 100%;
     padding: 5px;
     border: solid black 1px;
+}
+
+h1 {
+    margin: 0;
+    padding: 20px;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+div {
+    width: 50%;
+    padding: 10px;
+}
+
+span {
+    padding: 5px;
+}
+
+p {
+padding: 10px;
 }
 
 .interaction {
@@ -43,4 +65,20 @@ img {
 button {
     width: 40px;
     padding: 10px 0;
+}
+
+/* for mobile width, stack two main divs */
+@media (max-width: 900px) {
+    body {
+        width: 100%;
+    }
+
+    main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .interaction {
+        padding-top: 0;
+    }
 }
