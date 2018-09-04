@@ -28,6 +28,7 @@ img {
 
 .btn-off {
     text-decoration: line-through;
+    background: pink;
 }
 
 .letterbuttons {
