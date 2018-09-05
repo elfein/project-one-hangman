@@ -15,6 +15,10 @@ body {
     background: white;
 }
 
+button:focus {
+    outline:0;
+}
+
 header {
     background: goldenrod;
     color: white;
