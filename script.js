@@ -1,5 +1,9 @@
-// Target Word Handling
-let targetWord = 'sacred flame'
+// Target Word Generation
+let targetWordArr = ['sacred flame', 'moonbeam', 'fireball', 'vampiric touch', 'guiding bolt', 'vicious mockery']
+let wordIndex = Math.floor((Math.random() * 6))
+let targetWord = targetWordArr[wordIndex]
+
+// Target Word Display Handling
 let spacer = '<span>    </span>'
 let wordDisplay = []
 const updateWordDisplay = (word) => {
@@ -77,12 +81,19 @@ $('#restart').on('click', resetGame)
 
 function resetGame() {
     gameEnd = false
+    // Set buttons back to start state
     $('.letterbuttons').children('button').removeClass('btn-off', 'btn-end')
     $('.letterbuttons').children('button').attr('class', 'btn-start')
+    // Set play image back to start state
     incorrectCount = 0
     $('#playimg').attr('src', `css/images/bear-${incorrectCount}.jpg`)
+    // make new target word
+    wordIndex = Math.floor((Math.random() * 6))
+    targetWord = targetWordArr[wordIndex]
+    // display new target word
     wordDisplay = []
     updateWordDisplay(targetWord)
     $('#targetword').html(wordDisplay)
+    // reset status
     $('#status').html('Status: OK')
 }
