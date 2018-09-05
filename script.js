@@ -1,7 +1,23 @@
-// GAME START ------------------------------------------------------------
+// Wizard Fight Assets
+wizInstruct = 'Your wizard adversary is summoning their familiar&mdash;cast your spell before they attack!'
+wizArr = ['sacred flame', 'moonbeam', 'fireball', 'vampiric touch', 'guiding bolt', 'vicious mockery']
+
+// Family Reunion Assets
+famInstruct = 'Oh no! Your grumpy relatives are on their way to visit&mdash;make their favorite dish before they get here or else things will get rocky...'
+famArr = ['eggplant parmesan', 'teriyaki salmon', 'fish and chips', 'garlic chicken', 'captain\'s chicken', 'masaman salmon']
+
+
+// Page Wide Theme Assets
+const wordSetObj = {
+    'wiz': wizArr,
+    'fam': famArr
+}
+
+
+// PAGE LOAD ------------------------------------------------------------
 
 // ----- Target Word Generation -----
-let targetWordArr = ['sacred flame', 'moonbeam', 'fireball', 'vampiric touch', 'guiding bolt', 'vicious mockery']
+let targetWordArr = wordSetObj.wiz
 let wordIndex
 let targetWord
 function newTargetWord() {
@@ -35,7 +51,40 @@ let gameEnd = false
 $('#status').html('OK')
 $('#wins').html(winCount)
 
+// THEME SELECTION ------------------------------------------------------------
 
+let themeBtn
+let themeBtnId
+
+// click to change themes
+function navClick(event) {
+    themeBtn = $(this)
+    themeBtnId = $(themeBtn).attr('id')
+    changeTitle()
+    changeArr()
+    resetGame()
+}
+
+
+const changeTitle = () => {
+    $('h1').html($(themeBtn).html())
+}
+
+const changeArr = () => {
+    console.log(themeBtnId)
+    if (themeBtnId === 'wiz') {
+        console.log(1)
+        targetWordArr = wordSetObj.wiz
+    } else if (themeBtnId === 'fam') {
+        console.log(2)
+        targetWordArr = wordSetObj.fam
+    } else if (themeBtnId === 'motiv') {
+        targetWordArr = wordSetObj.motiv
+    }
+    console.log(targetWordArr)
+}
+
+$('.themes button').on('click', navClick)
 
 // GAME PLAY ------------------------------------------------------------
 
@@ -56,12 +105,12 @@ function letterClick(event) {
 
         // turning button "off"
         currentBtn.addClass('btn-used')
-        // disabling all buttons if last move of game
+        // disabling all buttons if this is last move of game
         allBtnsOff()
     }
 }
 
-// Do not take action if button is used or game is over
+// to see if button is used or game is over
 let checknewBtnAndGameOn = () => {
     return (!($(currentBtn).attr('class').includes('btn-used')) && !gameEnd)
 }
@@ -104,7 +153,7 @@ const incorrectBtn = () => {
 }
 
 
-// call function on click!
+// call function on click
 $('.letterbuttons button').on('click', letterClick)
 
 
