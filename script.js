@@ -59,7 +59,8 @@ function checkForMatch($event) {
         }
 
         // turning button "off"
-        $(this).addClass('btn-off')
+        $(this).attr('class', 'btn-off')
+        // disabling all buttons if last move of game
         allBtnsOff()
     }
 }
@@ -67,7 +68,7 @@ function checkForMatch($event) {
 // End of Game Events
 function allBtnsOff() {
     if (gameEnd === true) {
-        $('.letterbuttons').children('button').css('background', 'pink')
+        $('.letterbuttons').children('button').addClass('btn-end')
         }
     $('#restart').html('Restart')
 }
@@ -76,8 +77,12 @@ $('#restart').on('click', resetGame)
 
 function resetGame() {
     gameEnd = false
-    $('.letterbuttons').children('button').removeClass('btn-off')
-    $('.letterbuttons').children('button').css('background', 'lightgrey')
+    $('.letterbuttons').children('button').removeClass('btn-off', 'btn-end')
+    $('.letterbuttons').children('button').attr('class', 'btn-start')
     incorrectCount = 0
     $('#playimg').attr('src', `css/images/bear-${incorrectCount}.jpg`)
+    wordDisplay = []
+    updateWordDisplay(targetWord)
+    $('#targetword').html(wordDisplay)
+    $('#status').html('Status: OK')
 }
