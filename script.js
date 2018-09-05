@@ -39,9 +39,9 @@ $('#wins').html(winCount)
 
 // GAME PLAY ------------------------------------------------------------
 
-// ------ Letter Button Click Handling ------
+// Action to take when a letter is clicked
 let currentBtn
-function checkForMatch(event) {
+function letterClick(event) {
     currentBtn = $(this)
     // do not take action if button is used or game is over
     if (checknewBtnAndGameOn()) {
@@ -80,7 +80,7 @@ const correctBtn = () => {
 
     // check for win
     if (incorrectCount < 6 && wordDisplay.indexOf(' _ ') === -1) {
-        $('#status').html('Status: You win!')
+        $('#status').html('You win!')
         winCount++
         $('#wins').html(winCount)
         gameEnd = true
@@ -98,14 +98,14 @@ const incorrectBtn = () => {
     $('#playimg').attr('src', `css/images/bear-${incorrectCount}.jpg`)
     // check for lose
     if (incorrectCount >= 6 && wordDisplay.indexOf(' _ ') >= 0) {
-        $('#status').html('Status: Try again :(')
+        $('#status').html('Try again :(')
         gameEnd = true
     }
 }
 
 
 // call function on click!
-$('.letterbuttons button').on('click', checkForMatch)
+$('.letterbuttons button').on('click', letterClick)
 
 
 
@@ -138,5 +138,5 @@ function resetGame() {
     $('#targetword').html(wordDisplay)
 
     // reset status
-    $('#status').html('Status: OK')
+    $('#status').html('OK')
 }
