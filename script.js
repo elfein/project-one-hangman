@@ -42,59 +42,58 @@ let gameEnd = false
 let currentBtn
 
 // Do not take action if button is used or game is over
-const checkUsedBtnOrGameEnd = () => {
-    if (currentBtn.attr('class') !== 'btn-used' && !gameEnd) {
-        return
-    }
+let checknewBtnAndGameOn = () => {
+    return (!($(currentBtn).attr('class').includes('btn-used')) && !gameEnd)
 }
 
 // Actions to take if correct letter chosen
-const checkIfCorrectBtn = () => {
+const correctBtn = () => {
+    newLetter = currentBtn.attr('id')
+    for (i = 0; i < wordDisplay.length; i++) {
+        currentBtn.addClass('btn-right')
+        // replace correct letter
+        if (targetWord[i] === newLetter) {
+            wordDisplay[i] = newLetter
+            $('#targetword').html(wordDisplay)
+        }
+    }
 
+    // check for win
+    if (incorrectCount < 6 && wordDisplay.indexOf(' _ ') === -1) {
+        $('#status').html('Status: You win!')
+        gameEnd = true
+    }
 }
 
 $('.letterbuttons button').on('click', checkForMatch)
 
 function checkForMatch(event) {
     currentBtn = $(this)
-    checkUsedBtnOrGameEnd()
+    if (checknewBtnAndGameOn()) {
+        // if correct letter
+        if (targetWord.indexOf(this.id) !== -1) {
+            correctBtn()
+        }
+        // otherwise (incorrect letter)
+        else {
+            console.log(this.id)
+            $(this).addClass('btn-wrong')
 
-    // if correct letter
-    if (targetWord.indexOf(this.id) !== -1) {
-        for (i = 0; i < wordDisplay.length; i++) {
-            $(this).addClass('btn-right')
-            // replace correct letter
-            if (targetWord[i] === this.id) {
-                wordDisplay[i] = this.id
-                $('#targetword').html(wordDisplay)
+            // update play image
+            incorrectCount++
+            $('#playimg').attr('src', `css/images/bear-${incorrectCount}.jpg`)
+            // check for lose
+            if (incorrectCount >= 6 && wordDisplay.indexOf(' _ ') >= 0) {
+                $('#status').html('Status: Try again :(')
+                gameEnd = true
             }
         }
-        // check for win
-        if (incorrectCount < 6 && wordDisplay.indexOf(' _ ') === -1) {
-            $('#status').html('Status: You win!')
-            gameEnd = true
-        }
+
+        // turning button "off"
+        currentBtn.addClass('btn-used')
+        // disabling all buttons if last move of game
+        allBtnsOff()
     }
-
-    // otherwise (incorrect letter)
-    else {
-        console.log(this.id)
-        $(this).addClass('btn-wrong')
-
-        // update play image
-        incorrectCount++
-        $('#playimg').attr('src', `css/images/bear-${incorrectCount}.jpg`)
-        // check for lose
-        if (incorrectCount >= 6 && wordDisplay.indexOf(' _ ') >= 0) {
-            $('#status').html('Status: Try again :(')
-            gameEnd = true
-        }
-    }
-
-    // turning button "off"
-    $(this).addClass('btn-used')
-    // disabling all buttons if last move of game
-    allBtnsOff()
 }
 
 
