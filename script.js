@@ -31,11 +31,11 @@ $('.letterbuttons button').on('click', checkForMatch)
 
 function checkForMatch($event) {
     // check for diabled (off) button before continuing AND no win/loss
-    if ($(this).attr('class') !== 'btn-off' && !gameEnd) {
+    if ($(this).attr('class') !== 'btn-used' && !gameEnd) {
         // if correct letter
         if (targetWord.indexOf(this.id) !== -1) {
             for (i = 0; i < wordDisplay.length; i++) {
-
+                $(this).addClass('btn-right')
                 // replace correct letter
                 if (targetWord[i] === this.id) {
                     wordDisplay[i] = this.id
@@ -52,8 +52,10 @@ function checkForMatch($event) {
         // otherwise (incorrect letter)
         else {
             console.log(this.id)
-            incorrectCount++
+            $(this).addClass('btn-wrong')
+
             // update play image
+            incorrectCount++
             $('#playimg').attr('src', `css/images/bear-${incorrectCount}.jpg`)
             // check for lose
             if (incorrectCount >= 6 && wordDisplay.indexOf(' _ ') >= 0) {
@@ -63,7 +65,7 @@ function checkForMatch($event) {
         }
 
         // turning button "off"
-        $(this).attr('class', 'btn-off')
+        $(this).addClass('btn-used')
         // disabling all buttons if last move of game
         allBtnsOff()
     }
@@ -82,7 +84,7 @@ $('#restart').on('click', resetGame)
 function resetGame() {
     gameEnd = false
     // Set buttons back to start state
-    $('.letterbuttons').children('button').removeClass('btn-off', 'btn-end')
+    $('.letterbuttons').children('button').removeClass('btn-used', 'btn-right', 'btn-wrong', 'btn-end')
     $('.letterbuttons').children('button').attr('class', 'btn-start')
     // Set play image back to start state
     incorrectCount = 0

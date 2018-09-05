@@ -52,13 +52,20 @@ padding: 10px;
     background: lightgray;
 }
 
-.btn-off {
+.btn-used {
     text-decoration: line-through;
+}
+
+.btn-wrong {
     background: pink;
 }
 
+.btn-right {
+    background: palegreen;
+}
+
 .btn-end {
-    background: pink;
+    background: darkgray;
 }
 
 .letterbuttons {
