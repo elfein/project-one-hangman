@@ -48,8 +48,16 @@ padding: 10px;
     padding-top: 80px;
 }
 
+.btn-start {
+    background: lightgray;
+}
+
 .btn-off {
     text-decoration: line-through;
+    background: pink;
+}
+
+.btn-end {
     background: pink;
 }
 
