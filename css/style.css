@@ -1,14 +1,39 @@
 html {
-    background: lightgoldenrodyellow
+    background: lightgoldenrodyellow;
+    height: 100%;
 }
 
 body {
     text-align: center;
     width: 80%;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
     margin: 0 auto;
-    background: white;
     font-family: sans-serif;
+    background: white;
+}
+
+header {
+    background: goldenrod;
+    color: white;
+}
+
+nav {
+    padding: 10px;
+}
+
+nav > button {
+    width: 100px;
+    background: none;
+    border: none;
+}
+
+nav > button:hover {
+    color: blue;
+}
+
+nav > button.selected {
+    color: red;
 }
 
 img {
@@ -34,6 +59,10 @@ main {
 div {
     width: 50%;
     padding: 10px;
+}
+
+.playstatus {
+    margin-top: 30px;
 }
 
 span {
@@ -80,6 +109,31 @@ padding: 10px;
 button {
     width: 40px;
     padding: 10px 0;
+}
+
+footer {
+    background-color: goldenrod;
+    color: white;
+    margin-top: 50px;
+}
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    content: " ";
+    clear: both;
+    height: 0;
+    font-size: 0;
+    }
+
+footer > p {
+    -webkit-margin-after: 0;
+}
+
+.name {
+    color: palegoldenrod;
+    font-weight: 600;
+    padding: 0;
 }
 
 /* for mobile width, stack two main divs */
