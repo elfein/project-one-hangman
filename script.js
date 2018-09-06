@@ -202,6 +202,7 @@ const incorrectBtn = () => {
     // update play image
     incorrectCount++
     $('#playimg').attr('src', `css/images/${imgBase}${incorrectCount}.jpg`)
+    $('#playimg').attr('alt', `${6 - incorrectCount} more wrong moves!`)
     // check for lose
     if (incorrectCount >= 6 && wordDisplay.indexOf(' _ ') >= 0) {
         $('#status').html('Try again :(')
@@ -234,6 +235,7 @@ function resetGame() {
     // Set play image back to start state
     incorrectCount = 0
     $('#playimg').attr('src', `css/images/${imgBase}${incorrectCount}.jpg`)
+    $('#playimg').attr('alt', `6 more wrong moves!`)
 
     // make new target word
     newTargetWord()
