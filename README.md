@@ -24,6 +24,7 @@ _Live site:_ ?
 - Hint overlay
 - Visual markers for used, correct, and incorrect letters
 - Responsive design
+- Letter buttons disabled if used or after game end, active upon reset
 
 ### Wireframe
 
@@ -31,3 +32,10 @@ _Live site:_ ?
 ![alt text](wireframes/wireframe-2.png "Wireframe 2")
 ![alt text](wireframes/wireframe-3.png "Wireframe 3")
 ![alt text](wireframes/wireframe-4.png "Wireframe 4")
+
+### Future Development
+- Make status update with detailed description on each move
+- Make a start button to make all other interactive elements active, if disabled at page load
+- Create difficulty selectors, to allow for more incorrect letters or longer mystery words
+- Give each theme a distinct visual style
+- Add transitions to visual button changes, mystery word updates, "hangman" image updates, and more
