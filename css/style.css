@@ -1,5 +1,5 @@
 html {
-    background: lightgoldenrodyellow;
+    background: rgb(39, 33, 33);
     height: 100%;
 }
 
@@ -60,9 +60,20 @@ div {
     margin-top: 30px;
 }
 
+.playstatus, .interaction {
+    padding: 30px;
+}
+
+div.img-holder {
+    width: 100%;
+    padding: 0;
+}
+
 img {
+    height: auto;
     max-height: 300px;
-    max-width: 100%;
+    max-width: 420px;
+    width: 100%;
     padding: 5px;
     border: solid black 1px;
 }

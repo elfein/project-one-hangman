@@ -60,6 +60,7 @@ let instructSrc = wizInstruct
 $('#instructtext').html(instructSrc)
 $('#targetword').html(wordDisplay)
 let incorrectCount = 0
+let imgBase = 'bear-'
 let winCount = 0
 let gameEnd = false
 $('#status').html('OK')
@@ -78,6 +79,7 @@ function navClick(event) {
     changeTitle()
     changeInstruct()
     changeArr()
+    changeImgBase()
     resetGame()
 }
 
@@ -103,6 +105,16 @@ const changeArr = () => {
         targetWordArr = wordSetObj.fam
     } else if (themeBtnId === 'motiv') {
         targetWordArr = wordSetObj.motiv
+    }
+}
+
+const changeImgBase = () => {
+    if (themeBtnId === 'wiz') {
+        imgBase = 'bear-'
+    } else if (themeBtnId === 'fam') {
+        imgBase= 'granny-'
+    } else if (themeBtnId === 'motiv') {
+        imgBase = 'star-'
     }
 }
 
@@ -166,7 +178,7 @@ const incorrectBtn = () => {
 
     // update play image
     incorrectCount++
-    $('#playimg').attr('src', `css/images/bear-${incorrectCount}.jpg`)
+    $('#playimg').attr('src', `css/images/${imgBase}${incorrectCount}.jpg`)
     // check for lose
     if (incorrectCount >= 6 && wordDisplay.indexOf(' _ ') >= 0) {
         $('#status').html('Try again :(')
@@ -198,7 +210,7 @@ function resetGame() {
 
     // Set play image back to start state
     incorrectCount = 0
-    $('#playimg').attr('src', `css/images/bear-${incorrectCount}.jpg`)
+    $('#playimg').attr('src', `css/images/${imgBase}${incorrectCount}.jpg`)
 
     // make new target word
     newTargetWord()
