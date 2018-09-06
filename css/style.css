@@ -15,16 +15,15 @@ body {
     background: white;
 }
 
-button:focus {
-    outline:0;
-}
-
 header {
     color: black;
 }
 
-h1 {
+h1, h2, h3, h4 {
     font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+h1 {
     font-size: 2.8em;
     margin: 0;
     padding-top: 20px;
@@ -36,6 +35,7 @@ h5 {
     font-weight: 400;
     letter-spacing: 0.2em;
     margin: 5px;
+    color: rgb(39, 33, 33);
 }
 
 nav {
@@ -45,17 +45,18 @@ nav {
 }
 
 nav > button {
+    text-transform: uppercase;
     width: 100px;
     background: none;
     border: none;
 }
 
-nav > button:hover {
-    color: blue;
+button:hover {
+    color: goldenrod;
 }
 
 nav > button.selected {
-    color: red;
+    color: goldenrod;
 }
 
 main {
@@ -94,12 +95,34 @@ img {
     border: solid black 1px;
 }
 
+h2 {
+    font-weight: 400;
+}
+
 span {
     padding: 5px;
 }
 
 .interaction {
-    padding-top: 80px;
+    padding-top: 50px;
+}
+
+/* --------- interaction button styling --------- */
+
+button:focus {
+    outline:0;
+}
+
+button {
+    background: none;
+    border: 1px solid rgb(39, 33, 33);
+    margin: 2px;
+    width: 40px;
+    padding: 10px 0;
+}
+
+#restart {
+    width: 60px;
 }
 
 .btn-start {
@@ -131,17 +154,13 @@ span {
     margin: 0 auto;
 }
 
-button {
-    width: 40px;
-    padding: 10px 0;
-}
+/* --------- footer styling --------- */
 
 footer {
-    background-color: goldenrod;
-    color: white;
-    margin: 0;
+    margin: 10px 20px;
     height: 40px;
     text-transform: uppercase;
+    border-top: rgb(39, 33, 33) double 3px;
 }
 
 footer > p {
@@ -149,12 +168,13 @@ footer > p {
 }
 
 .name {
-    color: palegoldenrod;
+    color: goldenrod;
     font-weight: 600;
     padding: 0;
 }
 
-/* for mobile width, stack two main divs */
+/* --------- for mobile width, stack two main divs --------- */
+
 @media (max-width: 900px) {
     body {
         height: min-content;
@@ -167,8 +187,22 @@ footer > p {
 
     .playstatus {
         padding-top: 0;
+        margin-top: 0;
         display: flex;
         flex-direction: column-reverse;
+    }
+
+    div.img-holder {
+        width: 100%;
+        margin-left: -20px;
+    }
+
+    h2 {
+        margin: 5px;
+    }
+
+    img {
+        margin: 10px;
     }
 
     .interaction {
@@ -180,6 +214,14 @@ footer > p {
 
     h4, .interaction > p {
         order: 1;
+    }
+}
+
+/* minor balance fixes */
+@media (min-width: 1000px) {
+
+    .interaction {
+        padding-right: 50px;
     }
 }
 
