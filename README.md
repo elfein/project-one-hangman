@@ -2,7 +2,7 @@
 
 ### Overview
 
-For project #1, I created a game of hangman.
+For project #1, I created a game of hangman. However, I did move away from literal hangman imagery and included lighter subjects instead!
 
 Once the user comes to the site, they can start playing hangman by selecting letters to fill in the mystery word. On a correct choice, the letter in the mystery word is revealed, but on an incorrect choice, the "hangman" image updates. The game ends when the player wins or loses. If the player completes the mystery word, they win, and the win counter increases. If the player makes 6 incorrect choices, the player loses. The player can get a hint about the mystery word, reset the game, and change to a different theme.
 
