@@ -103,8 +103,8 @@ span {
     padding: 5px;
 }
 
-.interaction {
-    padding-top: 50px;
+.hint {
+    font-size: 0.3em;
 }
 
 /* --------- interaction button styling --------- */
