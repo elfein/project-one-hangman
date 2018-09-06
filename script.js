@@ -1,16 +1,28 @@
+// PAGE ASSETS ------------------------------------------------------------
+
 // Wizard Fight Assets
 wizInstruct = 'Your wizard adversary is summoning their familiar&mdash;cast your spell before they attack!'
 wizArr = ['sacred flame', 'moonbeam', 'fireball', 'vampiric touch', 'guiding bolt', 'vicious mockery']
 
 // Family Reunion Assets
 famInstruct = 'Oh no! Your grumpy relatives are on their way to visit&mdash;make their favorite dish before they get here or else things will get rocky...'
-famArr = ['eggplant parmesan', 'teriyaki salmon', 'fish and chips', 'garlic chicken', 'captain\'s chicken', 'masaman salmon']
+famArr = ['eggplant parmesan', 'teriyaki salmon', 'fish and chips', 'garlic chicken', 'veggie omelette', 'masaman salmon']
 
+// Personal Motivator Assets
+motivInstruct = 'Feeling worn down? Play through to reveal these pick-me-ups!'
+motivArr = ['you rock', 'keep it up', 'you have beautiful eyes', 'reach for the stars', 'hang in there', 'be the change you wish to see in the world']
 
 // Page Wide Theme Assets
 const wordSetObj = {
     'wiz': wizArr,
-    'fam': famArr
+    'fam': famArr,
+    'motiv': motivArr
+}
+
+const instructObj = {
+    'wiz': wizInstruct,
+    'fam': famInstruct,
+    'motiv': motivInstruct
 }
 
 
@@ -44,12 +56,15 @@ updateWordDisplay(targetWord)
 
 
 // ----- HTML elements for page start & game status setting -----
+let instructSrc = wizInstruct
+$('#instructtext').html(instructSrc)
 $('#targetword').html(wordDisplay)
 let incorrectCount = 0
 let winCount = 0
 let gameEnd = false
 $('#status').html('OK')
 $('#wins').html(winCount)
+
 
 // THEME SELECTION ------------------------------------------------------------
 
@@ -61,27 +76,34 @@ function navClick(event) {
     themeBtn = $(this)
     themeBtnId = $(themeBtn).attr('id')
     changeTitle()
+    changeInstruct()
     changeArr()
     resetGame()
 }
 
+const changeInstruct= () => {
+    if (themeBtnId === 'wiz') {
+        instructSrc = instructObj.wiz
+    } else if (themeBtnId === 'fam') {
+        instructSrc = instructObj.fam
+    } else if (themeBtnId === 'motiv') {
+        instructSrc = instructObj.motiv
+    }
+    $('#instructtext').html(instructSrc)
+}
 
 const changeTitle = () => {
     $('h1').html($(themeBtn).html())
 }
 
 const changeArr = () => {
-    console.log(themeBtnId)
     if (themeBtnId === 'wiz') {
-        console.log(1)
         targetWordArr = wordSetObj.wiz
     } else if (themeBtnId === 'fam') {
-        console.log(2)
         targetWordArr = wordSetObj.fam
     } else if (themeBtnId === 'motiv') {
         targetWordArr = wordSetObj.motiv
     }
-    console.log(targetWordArr)
 }
 
 $('.themes button').on('click', navClick)
