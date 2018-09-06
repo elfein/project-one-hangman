@@ -1,5 +1,7 @@
 # Hangman Project
 
+[Play it here](https://dreamy-lewin-34c0c7.netlify.com)
+
 ### Overview
 
 For project #1, I created a game of hangman. However, I did move away from literal hangman imagery and included lighter subjects instead!
