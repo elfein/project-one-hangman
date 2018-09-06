@@ -27,5 +27,7 @@ _Live site:_ ?
 
 ### Wireframe
 
-![alt text](wireframes/wireframe-1.JPG "Wireframe set 1")
-![alt text](wireframes/wireframe-2.JPG "Wireframe set 2")
+![alt text](wireframes/wireframe-1.png "MVP Wireframe")
+![alt text](wireframes/wireframe-2.png "Wireframe 2")
+![alt text](wireframes/wireframe-3.png "Wireframe 3")
+![alt text](wireframes/wireframe-4.png "Wireframe 4")
