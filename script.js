@@ -3,6 +3,7 @@
 // Wizard Fight Assets
 wizInstruct = 'Your wizard adversary is summoning their familiar&mdash;cast your spell before they attack!'
 wizArr = ['sacred flame', 'moonbeam', 'fireball', 'vampiric touch', 'guiding bolt', 'vicious mockery']
+wizHints = ['A divine cleric cantrip', '']
 
 // Family Reunion Assets
 famInstruct = 'Oh no! Your grumpy relatives are on their way to visit&mdash;make their favorite dish before they get here or else things will get rocky...'
@@ -222,4 +223,23 @@ function resetGame() {
 
     // reset status
     $('#status').html('OK')
+}
+
+// HINT MODAL ------------------------------------------------------------
+let modal = $('#hint-modal')
+let modalOverlay = $('#hint-modal-overlay')
+let modalOpenLink = $('.hint')
+
+modalOverlay.on('click', closeModal)
+
+function closeModal() {
+    modal.toggleClass('closed')
+    modalOverlay.toggleClass('closed')
+}
+
+modalOpenLink.on('click', openModal)
+
+function openModal() {
+    modal.toggleClass('closed')
+    modalOverlay.toggleClass('closed')
 }
