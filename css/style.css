@@ -20,12 +20,28 @@ button:focus {
 }
 
 header {
-    background: goldenrod;
-    color: white;
+    color: black;
+}
+
+h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2.8em;
+    margin: 0;
+    padding-top: 20px;
+}
+
+h5 {
+    font-size: 0.7em;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    margin: 5px;
 }
 
 nav {
-    padding-bottom: 10px;
+    margin: 20px;
+    border-top: rgb(39, 33, 33) double 3px;
+    border-bottom: rgb(39, 33, 33) solid 1px;;
 }
 
 nav > button {
@@ -76,11 +92,6 @@ img {
     width: 100%;
     padding: 5px;
     border: solid black 1px;
-}
-
-h1 {
-    margin: 0;
-    padding: 20px;
 }
 
 span {
@@ -146,7 +157,6 @@ footer > p {
 /* for mobile width, stack two main divs */
 @media (max-width: 900px) {
     body {
-        width: 100%;
         height: min-content;
     }
 
@@ -170,5 +180,12 @@ footer > p {
 
     h4, .interaction > p {
         order: 1;
+    }
+}
+
+@media (max-width: 600px) {
+
+    body {
+        width: 100%;
     }
 }
