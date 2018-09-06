@@ -3,15 +3,17 @@
 // Wizard Fight Assets
 wizInstruct = 'Your wizard adversary is summoning their familiar&mdash;cast your spell before they attack!'
 wizArr = ['sacred flame', 'moonbeam', 'fireball', 'vampiric touch', 'guiding bolt', 'vicious mockery']
-wizHints = ['A divine cleric cantrip', '']
+wizHints = ['A radiant cleric cantrip', 'A lunar 2nd level druid spell', 'A 3rd level evocation spell', 'A 3rd level necromancy spell', 'A shocking 1st level cleric spell', 'A biting bardic cantrip']
 
 // Family Reunion Assets
 famInstruct = 'Oh no! Your grumpy relatives are on their way to visit&mdash;make their favorite dish before they get here or else things will get rocky...'
 famArr = ['eggplant parmesan', 'teriyaki salmon', 'fish and chips', 'garlic chicken', 'veggie omelette', 'masaman salmon']
+famHints = ['melty and cheesy', 'a sweet and savory fish dish', 'from across the pond', 'vampires hate it', 'a good start to the morning', 'wild card!']
 
 // Personal Motivator Assets
 motivInstruct = 'Feeling worn down? Play through to reveal these pick-me-ups!'
 motivArr = ['you rock', 'keep it up', 'you have beautiful eyes', 'reach for the stars', 'hang in there', 'be the change you wish to see in the world']
+motivHints = ['__ and roll buckaroo', 'not down but __', 'they say they\'re the window to the soul', 'up in the sky', 'think of the kitten poster', 'I think it\'s a quote from Ghandi']
 
 // Page Wide Theme Assets
 const wordSetObj = {
@@ -24,6 +26,12 @@ const instructObj = {
     'wiz': wizInstruct,
     'fam': famInstruct,
     'motiv': motivInstruct
+}
+
+const hintObj = {
+    'wiz': wizHints,
+    'fam': famHints,
+    'motiv':motivHints
 }
 
 
@@ -55,10 +63,12 @@ const updateWordDisplay = (word) => {
 
 updateWordDisplay(targetWord)
 
-
 // ----- HTML elements for page start & game status setting -----
 let instructSrc = wizInstruct
 $('#instructtext').html(instructSrc)
+// hint handling
+let hintText = wizHints
+$('#hint-modal p').html(hintText[wordIndex])
 $('#targetword').html(wordDisplay)
 let incorrectCount = 0
 let imgBase = 'bear-'
@@ -81,6 +91,7 @@ function navClick(event) {
     changeInstruct()
     changeArr()
     changeImgBase()
+    changeHint()
     resetGame()
 }
 
@@ -117,6 +128,17 @@ const changeImgBase = () => {
     } else if (themeBtnId === 'motiv') {
         imgBase = 'star-'
     }
+}
+
+const changeHint = () => {
+    if (themeBtnId === 'wiz') {
+        hintText = hintObj.wiz
+    } else if (themeBtnId === 'fam') {
+        hintText = hintObj.fam
+    } else if (themeBtnId === 'motiv') {
+        hintText = hintObj.motiv
+    }
+    $('#hint-modal p').html(hintText[wordIndex])
 }
 
 $('.themes button').on('click', navClick)
@@ -223,6 +245,9 @@ function resetGame() {
 
     // reset status
     $('#status').html('OK')
+
+    // get new hint
+    changeHint()
 }
 
 // HINT MODAL ------------------------------------------------------------
