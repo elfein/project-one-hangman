@@ -20,7 +20,7 @@ Once the user comes to the site, they can start playing hangman by selecting let
 - Status marker
 - Restart button
 - Randomized mystery words
-- Hint overlay
+- Hint overlay with transition
 - Visual markers for used, correct, and incorrect letters
 - Responsive design
 - Letter buttons disabled if used or after game end, active upon restart
