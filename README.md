@@ -10,7 +10,6 @@ Once the user comes to the site, they can start playing hangman by selecting let
 
 ### Technologies Used
 - Languages - HTML5, CSS3, Javascript, jQuery
-- Design - Google Fonts
 - Project Planning & User Stories - [Trello] (https://trello.com/b/1K2EesED/emmy-project-1-hangman)
 - Visual Studio Code
 
@@ -24,7 +23,7 @@ Once the user comes to the site, they can start playing hangman by selecting let
 - Hint overlay
 - Visual markers for used, correct, and incorrect letters
 - Responsive design
-- Letter buttons disabled if used or after game end, active upon reset
+- Letter buttons disabled if used or after game end, active upon restart
 
 ### Wireframe
 
