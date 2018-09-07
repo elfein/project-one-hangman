@@ -38,3 +38,7 @@ Once the user comes to the site, they can start playing hangman by selecting let
 - Create difficulty selectors, to allow for more incorrect letters or longer mystery words
 - Give each theme more detailed visual style
 - Add transitions to visual button changes, mystery word updates, "hangman" image updates, and more
+
+### Other comments
+- One of the biggest struggles was handling the letter selection buttons. Their gameplay-related states were determined by class, but I also need to style their theme-related visuals somehow, which was an interesting problem to solve.
+- Handling the mystery word was the first problem I tackled and I feel good about this solution, but it would be interesting to include handling for punctuation or capital letters. 
