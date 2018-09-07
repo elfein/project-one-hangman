@@ -191,7 +191,7 @@ footer > p {
     background: rgba(33,0,0,0.3);
     display: flex;
     opacity: 1;
-    transition: opacity .5s;
+    transition: opacity .3s;
 }
 
 .closed {
