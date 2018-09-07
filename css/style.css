@@ -176,6 +176,8 @@ footer > p {
     max-width: 100%;
     z-index: 1010;
     display: grid;
+    opacity: 1;
+    transition: opacity .5s;
 }
 
 .modal-overlay {
@@ -188,10 +190,13 @@ footer > p {
     height: 100%;
     background: rgba(33,0,0,0.3);
     display: flex;
+    opacity: 1;
+    transition: opacity .5s;
 }
 
 .closed {
-    display: none;
+    z-index: -1000;
+    opacity: 0;
 }
 
 /* --------- for mobile width, stack two main divs --------- */
