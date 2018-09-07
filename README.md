@@ -1,6 +1,6 @@
 # Hangman Project
 
-[Play it here](https://dreamy-lewin-34c0c7.netlify.com)
+[Play it here](https://lucid-fermi-271bb8.netlify.com/)
 
 ### Overview
 
@@ -17,7 +17,7 @@ _Live site:_ ?
 - Visual Studio Code
 
 ### Features
-- 3 theme options, which affect page title, mystery words, "hangman" images, instruction text, and hints
+- 3 theme options, which affect page content and color theme
 - updating "hangman" image
 - Win counter
 - Status marker
