@@ -17,7 +17,7 @@ $(function () {
     motivArr = ['you rock', 'keep it up', 'you have beautiful eyes', 'reach for the stars', 'hang in there', 'be the change you wish to see in the world']
     motivHints = ['__ and roll buckaroo', 'not down but __', 'they say they\'re the window to the soul', 'up in the sky', 'think of the kitten poster', 'I think it\'s a quote from Ghandi']
 
-    // Page Wide Theme Assets
+    // Theme Asset Objects
     const wordSetObj = {
         'wiz': wizArr,
         'fam': famArr,
@@ -66,14 +66,18 @@ $(function () {
     updateWordDisplay(targetWord)
 
     // ----- HTML elements for page start & game status setting -----
+    // populating instructions
     let instructSrc = wizInstruct
     $('#instructtext').html(instructSrc)
     // hint handling
     let hintText = wizHints
     $('#hint-modal p').html(hintText[wordIndex])
+    // populating target word
     $('#targetword').html(wordDisplay)
+    // establishing incorrect counter & play image
     let incorrectCount = 0
     let imgBase = 'bear-'
+    // preparing game result and status data
     let winCount = 0
     let gameEnd = false
     $('#status').html('OK')
@@ -94,8 +98,12 @@ $(function () {
         changeArr()
         changeImgBase()
         changeHint()
+
+        // populates all new theme-based content
         resetGame()
     }
+
+    // ----- content-changing functions -----
 
     const changeInstruct = () => {
         if (themeBtnId === 'wiz') {
@@ -142,6 +150,8 @@ $(function () {
         }
         $('#hint-modal p').html(hintText[wordIndex])
     }
+
+    // establishing click handler for all of the above
 
     $('.themes button').on('click', navClick)
 
