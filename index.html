@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="wiz" lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -11,7 +11,7 @@
 
 <body>
     <header>
-        <h1>Wizard Fight</h1>
+        <h1 class="wiz">Wizard Fight</h1>
         <h5>A Hangman Game</h5>
         <nav class="themes">
             <button id='wiz'>Wizard Fight</button>
@@ -24,16 +24,16 @@
             <div class="img-holder">
                 <img id="playimg" src="css/images/bear-0.jpg" alt="6 more wrong moves!">
             </div>
-            <h2>Status:<span id="status"></span></h2>
-            <h2>Wins:<span id="wins"></span></h2>
+            <h2>Status:<span class="wiz" id="status"></span></h2>
+            <h2>Wins:<span class="wiz" id="wins"></span></h2>
         </div>
         <div class="interaction">
             <h4>Instructions</h4>
             <p id="instructtext"></p>
-            <button id="restart">Restart</button>
+            <button id="restart" class="wiz">Restart</button>
             <h3 id="targetword"></h3>
-            <a class="hint">Need a hint?</a>
-            <div class="letterbuttons">
+            <a id="hint" class="wiz">Need a hint?</a>
+            <div id="letterbuttons" class="wiz">
                 <button class="btn-start" id="a">A</button>
                 <button class="btn-start" id="b">B</button>
                 <button class="btn-start" id="c">C</button>
@@ -64,7 +64,7 @@
         </div>
     </main>
     <footer>
-        <p>Coded by <span class="name">Emmy</span></p>
+        <p>Coded by <span class="wiz">Emmy</span></p>
     </footer>
 
     <!-- hint modal attempt -->
