@@ -89,6 +89,8 @@ $(function () {
     let themeBtn
     let themeBtnId
 
+    let themeElements = ['html', 'span', 'h1', 'a', 'nav', '#letterbuttons', '#restart']
+
     // click to change themes
     function navClick(event) {
         themeBtn = $(this)
@@ -97,6 +99,7 @@ $(function () {
         changeInstruct()
         changeArr()
         changeImgBase()
+        changeTheme()
         changeHint()
 
         // populates all new theme-based content
@@ -151,9 +154,21 @@ $(function () {
         $('#hint-modal p').html(hintText[wordIndex])
     }
 
+    const changeTheme = () => {
+        for (i = 0; i < themeElements.length; i++) {
+            if (themeBtnId === 'wiz') {
+                $(themeElements[i]).attr('class', 'wiz')
+            } else if (themeBtnId === 'fam') {
+                $(themeElements[i]).attr('class', 'fam')
+            } else if (themeBtnId === 'motiv') {
+                $(themeElements[i]).attr('class', 'motiv')
+            }
+        }
+    }
+
     // establishing click handler for all of the above
 
-    $('.themes button').on('click', navClick)
+    $('nav button').on('click', navClick)
 
     // GAME PLAY ------------------------------------------------------------
 
@@ -224,14 +239,14 @@ $(function () {
 
 
     // call function on click
-    $('.letterbuttons button').on('click', letterClick)
+    $('#letterbuttons button').on('click', letterClick)
 
 
 
     // GAME END ------------------------------------------------------------
     function allBtnsOff() {
         if (gameEnd === true) {
-            $('.letterbuttons').children('button').addClass('btn-end')
+            $('#letterbuttons').children('button').addClass('btn-end')
         }
         $('#restart').html('Restart')
     }
@@ -241,8 +256,8 @@ $(function () {
     function resetGame() {
         gameEnd = false
         // Set buttons back to start state
-        $('.letterbuttons').children('button').removeClass('btn-used', 'btn-right', 'btn-wrong', 'btn-end')
-        $('.letterbuttons').children('button').attr('class', 'btn-start')
+        $('#letterbuttons').children('button').removeClass('btn-used', 'btn-right', 'btn-wrong', 'btn-end')
+        $('#letterbuttons').children('button').attr('class', 'btn-start')
 
         // Set play image back to start state
         incorrectCount = 0
@@ -267,7 +282,7 @@ $(function () {
     // HINT MODAL ------------------------------------------------------------
     let modal = $('#hint-modal')
     let modalOverlay = $('#hint-modal-overlay')
-    let modalOpenLink = $('.hint')
+    let modalOpenLink = $('#hint')
 
     modalOverlay.on('click', closeModal)
 
