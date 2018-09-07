@@ -39,5 +39,5 @@ _Live site:_ ?
 - Make status update with detailed description on each move
 - Make a start button to make all other interactive elements active, if disabled at page load
 - Create difficulty selectors, to allow for more incorrect letters or longer mystery words
-- Give each theme a distinct visual style
+- Give each theme more detailed visual style
 - Add transitions to visual button changes, mystery word updates, "hangman" image updates, and more
